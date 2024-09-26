@@ -48,6 +48,7 @@ public class MyGlue {
 
   @When("do something wrong step")
   public void doSomethingWrongStep(DataTable dataTable) {
+    mysteps.doit();
     mysteps.fail();
   }
 }
