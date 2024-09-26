@@ -1,12 +1,10 @@
 package starter;
 
-import static net.serenitybdd.screenplay.rest.questions.ResponseConsequence.seeThatResponse;
-
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
-import net.serenitybdd.screenplay.Actor;
-import net.serenitybdd.screenplay.rest.abilities.CallAnApi;
-import net.serenitybdd.screenplay.rest.interactions.Get;
+import io.restassured.RestAssured;
+import net.serenitybdd.rest.SerenityRest;
 
 public class MyGlue {
 
@@ -22,12 +20,10 @@ public class MyGlue {
 
   @When("do something wrong")
   public void do_something_wrong() {
-    Actor actor = Actor.named("Alice").whoCan(CallAnApi.at("http://www.example.com"));
-    sendRequest(actor);
-    actor.should(seeThatResponse("message", response -> response.statusCode(500)));
+    throw new AssertionError("something went wrong");
   }
-
-  private <T extends Actor> void sendRequest(T actor) {
-    actor.attemptsTo(Get.resource("/"));
+  @When("do something wronger")
+  public void do_something_wrong(DataTable dataTable) {
+    SerenityRest.given().when().get("https://orf.at/diegibtsned").then().statusCode(200);
   }
 }
