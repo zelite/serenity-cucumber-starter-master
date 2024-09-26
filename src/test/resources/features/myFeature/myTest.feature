@@ -9,6 +9,9 @@ Feature: try to reproduce wrong report generation
       #| arg1 | arg2 |
     # 1 2 2
       # When do something wrong
+    # 1 2 2
+    #  When do something wrong step
+    #  | arg1 | arg2 |
     # 1 4 2
     When do something wrong ensure
     | arg1 | arg2 |
