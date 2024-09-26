@@ -13,5 +13,6 @@ import org.junit.platform.suite.api.Suite;
 @ConfigurationParameter(
     key = PLUGIN_PROPERTY_NAME,
     value =
-        "io.cucumber.core.plugin.SerenityReporterParallel,pretty,timeline:build/test-results/timeline")
+        "io.cucumber.core.plugin.SerenityReporterParallel")
 public class CucumberTestSuite {}
+// pretty,timeline:build/test-results/timeline
